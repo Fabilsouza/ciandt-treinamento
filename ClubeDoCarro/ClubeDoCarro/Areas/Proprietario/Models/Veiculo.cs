@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ClubeDoCarro.Areas.Proprietario.Models
 {
     public class Veiculo
-    {    
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        public int VeiculoID { get; set; }
         [Required]
         public string Modelo { get; set; }
         [Required]

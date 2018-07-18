@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -151,16 +157,21 @@
     <Compile Include="Areas\Oficina\Controllers\HomeController.cs" />
     <Compile Include="Areas\Oficina\OficinaAreaRegistration.cs" />
     <Compile Include="Areas\Proprietario\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Proprietario\Controllers\VeiculoController.cs" />
+    <Compile Include="Areas\Proprietario\Controllers\VeiculosController.cs" />
     <Compile Include="Areas\Proprietario\Models\Veiculo.cs" />
     <Compile Include="Areas\Proprietario\ProprietarioAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClubeDoCarroContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ClubeDoCarro.mdf" />
+    <Content Include="App_Data\ClubeDoCarro_log.ldf">
+      <DependentUpon>ClubeDoCarro.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -184,6 +195,11 @@
     <Content Include="Areas\Oficina\Views\Home\Index.cshtml" />
     <Content Include="Areas\Proprietario\Views\Veiculo\Index.cshtml" />
     <Content Include="Areas\Proprietario\Views\Veiculo\Cadastrar.cshtml" />
+    <Content Include="Areas\Proprietario\Views\Veiculos\Create.cshtml" />
+    <Content Include="Areas\Proprietario\Views\Veiculos\Delete.cshtml" />
+    <Content Include="Areas\Proprietario\Views\Veiculos\Details.cshtml" />
+    <Content Include="Areas\Proprietario\Views\Veiculos\Edit.cshtml" />
+    <Content Include="Areas\Proprietario\Views\Veiculos\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -212,10 +228,8 @@
     <Content Include="Views\Shared\_Template.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Oficina\Models\" />
     <Folder Include="Areas\Oficina\Views\Oficina\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
