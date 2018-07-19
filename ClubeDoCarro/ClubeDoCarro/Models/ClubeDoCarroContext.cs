@@ -12,7 +12,6 @@ namespace ClubeDoCarro.Models
         public ClubeDoCarroContext() : base("name=ClubeDoCarroContext")
         {
         }
-
-        public System.Data.Entity.DbSet<ClubeDoCarro.Areas.Proprietario.Models.Veiculo> Veiculos { get; set; }
+        public System.Data.Entity.DbSet<ClubeDoCarro.Areas.Oficina.Models.Oficina> Oficinas { get; set; }
     }
 }
