@@ -52,9 +52,18 @@
             @Html.DisplayFor(modelItem => item.Combustivel)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.VeiculoID }) |
-            @Html.ActionLink("Detalhar", "Details", new { id=item.VeiculoID }) |
-            @Html.ActionLink("Excluir", "Delete", new { id=item.VeiculoID })
+            @Html.ActionLink("Editar", "Edit", new { id = item.VeiculoID }) |
+            @Html.ActionLink("Detalhar", "Details", new { id = item.VeiculoID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.VeiculoID }) |
+            @if (item.DisponivelVenda)
+            {
+                @Html.ActionLink("Cancelar Venda", "Venda", new { id = item.VeiculoID })
+            }
+            else
+            {
+                @Html.ActionLink("Disponibilizar Venda", "Venda", new { id = item.VeiculoID })
+            }
+
         </td>
     </tr>
 }

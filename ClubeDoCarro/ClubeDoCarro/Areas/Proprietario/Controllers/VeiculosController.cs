@@ -41,7 +41,7 @@ namespace ClubeDoCarro.Areas.Proprietario.Controllers
         // POST: Proprietario/Veiculos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VeiculoID,Modelo,Marca,Cor,Placa,Ano,Complemento,Carroceria,Chassi,Preco,Km,Portas,Combustivel")] Veiculo veiculo)
+        public ActionResult Create([Bind(Include = "VeiculoID,Modelo,Marca,Cor,Placa,Ano,Complemento,Carroceria,Chassi,Preco,Km,Portas,Combustivel,DisponivelVenda")] Veiculo veiculo)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace ClubeDoCarro.Areas.Proprietario.Controllers
         // POST: Proprietario/Veiculos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VeiculoID,Modelo,Marca,Cor,Placa,Ano,Complemento,Carroceria,Chassi,Preco,Km,Portas,Combustivel")] Veiculo veiculo)
+        public ActionResult Edit([Bind(Include = "VeiculoID,Modelo,Marca,Cor,Placa,Ano,Complemento,Carroceria,Chassi,Preco,Km,Portas,Combustivel,DisponivelVenda")] Veiculo veiculo)
         {
             if (ModelState.IsValid)
             {
@@ -81,6 +81,32 @@ namespace ClubeDoCarro.Areas.Proprietario.Controllers
             }
             return View(veiculo);
         }
+
+
+        // GET: Proprietario/Veiculos/Venda/5
+        public ActionResult Venda(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Veiculo veiculo = db.Veiculos.Find(id);
+            if (veiculo == null)
+            {
+                return HttpNotFound();
+            }
+
+            veiculo.DisponivelVenda = !veiculo.DisponivelVenda;
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(veiculo).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
 
         // GET: Proprietario/Veiculos/Delete/5
         public ActionResult Delete(int? id)

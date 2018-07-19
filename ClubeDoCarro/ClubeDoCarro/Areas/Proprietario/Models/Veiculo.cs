@@ -33,5 +33,8 @@ namespace ClubeDoCarro.Areas.Proprietario.Models
         public int Portas { get; set; }
         [Required]
         public string Combustivel { get; set; }
+        [Display(Name = "Disponível para Venda")]
+        public Boolean DisponivelVenda { get; set; }
+
     }
 }

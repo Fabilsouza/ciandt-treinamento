@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+using System.Data.Entity;
+using ClubeDoCarro.Models;
+
 namespace ClubeDoCarro
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -16,6 +19,7 @@ namespace ClubeDoCarro
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.SetInitializer<ClubeDoCarroContext>(null);
         }
     }
 }

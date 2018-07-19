@@ -8,7 +8,6 @@ namespace ClubeDoCarro.Models
 {
     public class ClubeDoCarroContext : DbContext
     {
-    
         public ClubeDoCarroContext() : base("name=ClubeDoCarroContext")
         {
         }
