@@ -10,19 +10,27 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-
-    <nav>
-        <h1>Clube do Carro</h1>
-        <ul>
-
-            <li>@Html.ActionLink("Início", "Index", "Home")</li>
-            <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-            <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-            <li>@Html.ActionLink("Oficina", "Index", "Home", new { Area = "Oficina" }, new { })</li>
-            <li>@Html.ActionLink("Proprietário", "Index", "Home", new { Area = "Proprietario" }, new { })</li>
-
-        </ul>
-    </nav>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Clube do Carro", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Oficina", "Index", "Home", new { Area = "Oficina" }, new { })</li>
+                    <li>@Html.ActionLink("Proprietário", "Index", "Home", new { Area = "Proprietario" }, new { })</li>
+                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div>
         @RenderBody()
 
