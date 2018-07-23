@@ -9,7 +9,7 @@ namespace ClubeDoCarro.Areas.Proprietario.Models
 {
     public class Veiculo
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int VeiculoID { get; set; }
         [Required]
@@ -35,6 +35,8 @@ namespace ClubeDoCarro.Areas.Proprietario.Models
         public string Combustivel { get; set; }
         [Display(Name = "Disponível para Venda")]
         public Boolean DisponivelVenda { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        public DateTime? DataAquisicao { get; set; }
 
     }
 }

@@ -8,8 +8,8 @@
 
 <h3>Confirma a exclusão deste item?</h3>
 <div>
-    <h4>Veiculo</h4>
     <hr />
+    <br />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Modelo)
@@ -113,6 +113,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.DisponivelVenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAquisicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAquisicao)
         </dd>
 
     </dl>

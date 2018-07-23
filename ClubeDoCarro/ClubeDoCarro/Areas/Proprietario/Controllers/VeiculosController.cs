@@ -41,7 +41,7 @@ namespace ClubeDoCarro.Areas.Proprietario.Controllers
         // POST: Proprietario/Veiculos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VeiculoID,Modelo,Marca,Cor,Placa,Ano,Complemento,Carroceria,Chassi,Preco,Km,Portas,Combustivel,DisponivelVenda")] Veiculo veiculo)
+        public ActionResult Create([Bind(Include = "VeiculoID,Modelo,Marca,Cor,Placa,Ano,Complemento,Carroceria,Chassi,Preco,Km,Portas,Combustivel,DataAquisicao")] Veiculo veiculo)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace ClubeDoCarro.Areas.Proprietario.Controllers
         // POST: Proprietario/Veiculos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VeiculoID,Modelo,Marca,Cor,Placa,Ano,Complemento,Carroceria,Chassi,Preco,Km,Portas,Combustivel,DisponivelVenda")] Veiculo veiculo)
+        public ActionResult Edit([Bind(Include = "VeiculoID,Modelo,Marca,Cor,Placa,Ano,Complemento,Carroceria,Chassi,Preco,Km,Portas,Combustivel,DataAquisicao")] Veiculo veiculo)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace ClubeDoCarro.Areas.Proprietario.Controllers
 
 
         // GET: Proprietario/Veiculos/Venda/5
-        public ActionResult Venda(int? id)
+        public ActionResult DisponibilizaVenda(int? id)
         {
             if (id == null)
             {
@@ -96,7 +96,7 @@ namespace ClubeDoCarro.Areas.Proprietario.Controllers
                 return HttpNotFound();
             }
 
-            veiculo.DisponivelVenda = !veiculo.DisponivelVenda;
+              veiculo.DisponivelVenda = !veiculo.DisponivelVenda;
 
             if (ModelState.IsValid)
             {

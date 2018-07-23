@@ -25,4 +25,10 @@ textarea {
 
 h1{
     color: palevioletred;
-} 
+}
+
+.input-validation-error {
+    background-color: red;
+    opacity: 0.8;
+    border-color: #da9c9c;
+}

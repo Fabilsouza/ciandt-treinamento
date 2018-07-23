@@ -6,22 +6,18 @@
 
 <h2>Novo veículo</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
-    <h4>Veiculo</h4>
+    <br />
+    <h4>Preencha as informações para cadastro do veículo</h4>
+
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.VeiculoID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.VeiculoID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.VeiculoID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
+    <br />
+    
     <div class="form-group">
         @Html.LabelFor(model => model.Modelo, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -119,10 +115,32 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.DisponivelVenda, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.DataAquisicao, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.DisponivelVenda, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DisponivelVenda, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.DataAquisicao, new { htmlAttributes = new { @class = "form-control DatePicker", @type = "date" } })
+            @Html.ValidationMessageFor(model => model.DataAquisicao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Tipo Pessoa", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="radio" name="people" value="pf" onchange="validarPessoa(this.value)"> Pessoa Física<br>
+            <input type="radio" name="people" value="pj" onchange="validarPessoa(this.value)"> Pessoa Jurídica<br>
+            <div id="div-cpf" style="display:none">
+                <label>
+                    CPF:
+                </label>
+                <input type="text" class="form-control" id="cpf" name="cpf" onblur="TestaCPF(this.value)" maxlength="11">
+                <span class="text-danger field-validation-error" style="display : none" id="ErroCpf"><span id="Modelo-error">O CPF não é válido.</span></span>
+            </div>
+
+            <div id="div-cnpj" style="display:none">
+                <label>
+                    CNPJ:
+                </label>
+                <input type="text" class="form-control" id="cnpj" name="cnpj">
+            </div>
         </div>
     </div>
 
@@ -137,3 +155,5 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+

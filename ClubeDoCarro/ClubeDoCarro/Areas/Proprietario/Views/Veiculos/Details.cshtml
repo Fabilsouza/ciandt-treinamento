@@ -6,6 +6,8 @@
 
 <h2>Detalhar veículo</h2>
 
+
+
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -111,6 +113,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.DisponivelVenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAquisicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAquisicao)
         </dd>
 
     </dl>

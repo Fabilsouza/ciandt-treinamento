@@ -31,7 +31,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Modelo)
@@ -57,15 +58,15 @@
             @Html.ActionLink("Excluir", "Delete", new { id = item.VeiculoID }) |
             @if (item.DisponivelVenda)
             {
-                @Html.ActionLink("Cancelar Venda", "Venda", new { id = item.VeiculoID })
+                @Html.ActionLink("Cancelar Venda", "DisponibilizaVenda", new { id = item.VeiculoID }, new { onclick = "return confirm ('Deseja realmente cancelar venda?')" })
             }
             else
             {
-                @Html.ActionLink("Disponibilizar Venda", "Venda", new { id = item.VeiculoID })
+                @Html.ActionLink("Disponibilizar Venda", "DisponibilizaVenda", new { id = item.VeiculoID }, new { onclick = "return confirm ('Deseja realmente disponibilizar para venda?')" })
             }
 
         </td>
     </tr>
-}
+    }
 
 </table>

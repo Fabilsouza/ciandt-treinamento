@@ -1,7 +1,68 @@
-﻿@{
+﻿@model IEnumerable<ClubeDoCarro.Areas.Proprietario.Models.Veiculo>
+
+@{
     ViewBag.Title = "Compra e Venda de Veículos";
 }
 
 <h2>Compra e Venda de Veículos</h2>
-<br></br>
+<br />
 <h4>Veículos Disponíveis:</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Combustivel)
+        </th>
+        <th></th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        if (item.DisponivelVenda)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ano)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Combustivel)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalhar", "Details", "Veiculos", new { id = item.VeiculoID }, new { }) |
+                    @Html.ActionLink("Comprar", "Create", new { id = item.VeiculoID }) |
+                    @Html.ActionLink("Vender", "Create", new { id = item.VeiculoID }) 
+                </td>
+            </tr>
+        }
+        
+    }
+</table>
+
+

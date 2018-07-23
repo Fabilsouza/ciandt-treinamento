@@ -13,5 +13,7 @@ namespace ClubeDoCarro.Models
         }
 
         public System.Data.Entity.DbSet<ClubeDoCarro.Areas.Proprietario.Models.Veiculo> Veiculos { get; set; }
+
+        public System.Data.Entity.DbSet<ClubeDoCarro.Areas.Proprietario.Models.Venda> Vendas { get; set; }
     }
 }

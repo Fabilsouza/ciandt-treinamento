@@ -160,6 +160,7 @@
     <Compile Include="Areas\Proprietario\Controllers\VeiculosController.cs" />
     <Compile Include="Areas\Proprietario\Controllers\VendasController.cs" />
     <Compile Include="Areas\Proprietario\Models\Veiculo.cs" />
+    <Compile Include="Areas\Proprietario\Models\Venda.cs" />
     <Compile Include="Areas\Proprietario\ProprietarioAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,7 +203,9 @@
     <Content Include="Areas\Proprietario\Views\Veiculos\Edit.cshtml" />
     <Content Include="Areas\Proprietario\Views\Veiculos\Index.cshtml" />
     <Content Include="Areas\Proprietario\Views\Vendas\Index.cshtml" />
+    <Content Include="Areas\Proprietario\Views\Vendas\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\features.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
